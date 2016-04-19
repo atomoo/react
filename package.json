@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: noo test specified\" && exit 1"
   },
-  "author": "",
+  "author": "atom",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^1.13.0"
