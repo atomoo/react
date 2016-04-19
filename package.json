@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: noo test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --inline"
   },
   "author": "atom",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^1.13.0"
+    "html-webpack-plugin": "^2.16.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   }
 }
