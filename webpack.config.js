@@ -17,6 +17,15 @@ webpackConfig = {
         path: BUILD_PATH,
         filename: 'bundle.js'
     },
+    module:{
+        loaders:[
+            {
+                test: /\.css$/,
+                loaders: ['style', 'css'],
+                include: APP_PATH
+            }
+        ]
+    },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
         new HtmlwebpackPlugin({
