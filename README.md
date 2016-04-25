@@ -1,2 +1,2 @@
-# react
-study react 
+# webpack
+study webpack 
