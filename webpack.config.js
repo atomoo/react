@@ -9,6 +9,7 @@ var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'output');
 var NODE_MODULE = path.resolve(ROOT_PATH, 'node_modules');
+var TPL_PATH = path.resolve(APP_PATH, 'templates');
 
 var webpackConfig;
 webpackConfig = {
@@ -16,7 +17,7 @@ webpackConfig = {
     entry: {
         app:path.resolve(APP_PATH,'index.js'),
         mobile:path.resolve(APP_PATH, 'mobile.js'),
-        vendors:['jquery'],
+        lib:['jquery']
     },
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
@@ -43,10 +44,27 @@ webpackConfig = {
     },
     //添加我们的插件 会自动生成一个html文件
     plugins: [
+        // index.html
         new HtmlwebpackPlugin({
-            title: 'Hello World app'
+            title: 'Hello World app index',
+            template: path.resolve(TPL_PATH, 'index.html'),
+            filename: 'index.html',
+            chunks:['app', 'lib'],
+            inject:'body'
         }),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'lib.js'),
+        // mobile.html
+        new HtmlwebpackPlugin({
+            title: 'Hello World app index',
+            template: path.resolve(TPL_PATH, 'mobile.html'),
+            filename: 'mobile.html',
+            chunks:['mobile', 'lib'],
+            inject:'body'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name:'lib',
+            filename:'lib.js',
+            minChunks: Infinity
+        }),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",

@@ -1,19 +1,18 @@
-webpackJsonp([0],[
+webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
-	 * Created by Atom on 2016.4.19.0019.
+	 * Created by Atom on 2016/4/22.
 	 */
-	__webpack_require__(3);
+	__webpack_require__(3)
 	var sub = __webpack_require__(8);
 
 	var app = document.createElement('div');
-	app.innerHTML = '<h1>h1 hello world !</h1>';
+	app.innerHTML = '<h1>mobile hello world</h1>';
 	app.appendChild(sub());
 	document.body.appendChild(app);
-	$('body').append(new Date().getTime());
-	console.error('asdf')
+	$('body').append('mmmmmmm');
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
