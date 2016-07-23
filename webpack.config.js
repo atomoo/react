@@ -45,25 +45,24 @@ webpackConfig = {
     //添加我们的插件 会自动生成一个html文件
     plugins: [
         // index.html
-        new HtmlwebpackPlugin({
-            title: 'Hello World app index',
-            template: path.resolve(TPL_PATH, 'index.html'),
-            filename: 'index.html',
-            chunks:['app', 'lib'],
-            inject:'body'
-        }),
-        // mobile.html
-        new HtmlwebpackPlugin({
-            title: 'Hello World app index',
-            template: path.resolve(TPL_PATH, 'mobile.html'),
-            filename: 'mobile.html',
-            chunks:['mobile', 'lib'],
-            inject:'body'
-        }),
+        // new HtmlwebpackPlugin({
+        //     title: 'Hello World app index',
+        //     template: path.resolve(TPL_PATH, 'index.html'),
+        //     filename: 'index.html',
+        //     chunks:['app', 'lib'],
+        //     inject:'body'
+        // }),
+        // // mobile.html
+        // new HtmlwebpackPlugin({
+        //     title: 'Hello World app index',
+        //     template: path.resolve(TPL_PATH, 'mobile.html'),
+        //     filename: 'mobile.html',
+        //     chunks:['mobile', 'lib'],
+        //     inject:'body'
+        // }),
         new webpack.optimize.CommonsChunkPlugin({
-            name:'lib',
-            filename:'lib.js',
-            minChunks: Infinity
+            names:['common', 'lib'],
+            minChunks: 2
         }),
         new webpack.ProvidePlugin({
             $: "jquery",
