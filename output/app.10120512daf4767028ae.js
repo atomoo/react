@@ -1,4 +1,4 @@
-webpackJsonp([0],[
+webpackJsonp([0,4],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9,7 +9,7 @@ webpackJsonp([0],[
 	var sub = __webpack_require__(3);
 
 	var app = document.createElement('div');
-	app.innerHTML = '<h1>h1 hello world !</h1>';
+	app.innerHTML = '<h1>h1 hello qqqqqqq!</h1>';
 	app.appendChild(sub());
 	document.body.appendChild(app);
 	$('body').append(new Date().getTime());

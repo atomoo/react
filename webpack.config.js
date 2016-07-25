@@ -16,13 +16,14 @@ webpackConfig = {
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
     entry: {
         app:path.resolve(APP_PATH,'index.js'),
-        mobile:path.resolve(APP_PATH, 'mobile.js'),
+        mobile:path.resolve(APP_PATH,'mobile.js'),
         lib:['jquery']
     },
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
         path: BUILD_PATH,
-        filename: '[name].js'
+        filename: '[name].[chunkhash].js',
+        chunkFilename: "[chunkhash].js"
     },
     resolve: {
         alias: {
@@ -45,25 +46,11 @@ webpackConfig = {
     //添加我们的插件 会自动生成一个html文件
     plugins: [
         // index.html
-        // new HtmlwebpackPlugin({
-        //     title: 'Hello World app index',
-        //     template: path.resolve(TPL_PATH, 'index.html'),
-        //     filename: 'index.html',
-        //     chunks:['app', 'lib'],
-        //     inject:'body'
-        // }),
-        // // mobile.html
-        // new HtmlwebpackPlugin({
-        //     title: 'Hello World app index',
-        //     template: path.resolve(TPL_PATH, 'mobile.html'),
-        //     filename: 'mobile.html',
-        //     chunks:['mobile', 'lib'],
-        //     inject:'body'
-        // }),
         new webpack.optimize.CommonsChunkPlugin({
-            names:['common', 'lib'],
+            names:['common', 'lib', 'manifest'],
             minChunks: 2
         }),
+        new webpack.optimize.DedupePlugin(),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
