@@ -1,11 +1,28 @@
 /**
- * Created by Atom on 2016.4.19.0019.
+ * @file
+ * @author v_yangpei
  */
-
-var sub = require('./sub.js');
-
-var app = document.createElement('div');
-app.innerHTML = '<h1>h1 hello qqqqqqq!</h1>';
-app.appendChild(sub());
-document.body.appendChild(app);
-$('body').append(new Date().getTime());
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import App from './app';
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+const rootEl = document.querySelector('#root');
+const render = Component =>
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        rootEl
+    );
+render(App);
+if (module.hot) {
+    module.hot.accept('./app', () => {
+        ReactDOM.render(
+            <AppContainer>
+                <App />
+            </AppContainer>,
+            rootEl
+        );
+    });
+}
