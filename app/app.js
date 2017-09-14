@@ -1,6 +1,6 @@
 /**
  * @file
- * @author v_yangpei
+ * @author 
  */
 import React from 'react';
 import routes from './routes';
