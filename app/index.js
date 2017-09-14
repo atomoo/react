@@ -1,6 +1,6 @@
 /**
  * @file
- * @author v_yangpei
+ * @author
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
